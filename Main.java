@@ -1,13 +1,13 @@
 import java.beans.beancontext.BeanContextServiceAvailableEvent;
 import java.util.Scanner;
 
-public class Main {
+public class Main { // next project I will make sure to create a main menu instead of this step by step traveling through all options
     public static void main(String[] args) {
-
+// hashmap doesn't keep insertion order
 
         Scanner scan = new Scanner(System.in);
         System.out.println("Note all the quantities are in KiloGrams(KG)\n\n");
-        IceCreamInventory ice = new IceCreamInventory();
+        IceCreamInventory ice = new IceCreamInventory(); // had to create this because of nested class
         IceCreamInventory.IceCreamFlavor iceCream = ice.new IceCreamFlavor("kulfi", 100, "badam", 50);
         //iceCream.getFlavorNameAndQuantity();
 
@@ -26,7 +26,6 @@ public class Main {
                     System.out.println("\n\n" + flavor + " has been added to the inventory. " + "Quantity : 70Kg\n\n");
                     iceCream.addFlavorNameAndQuantity(flavor, quantity);
                     continue;
-
                 }
                 if (check == 2) {
                     System.out.println("Skipping.....\n");
@@ -57,6 +56,7 @@ public class Main {
                 System.out.println("Enter the price per serving of the topping");
                 Integer pricePerTopping = scan.nextInt();
                 System.out.println("\n\n" + toppingToAdd + " has been added with a price per serving of " + pricePerTopping + ".\n");
+                iceCream.addToppings(toppingToAdd, pricePerTopping);
                 continue;
             }
             if(check2 == 2){
@@ -81,6 +81,8 @@ public class Main {
                 scan.next(); //flushes off shitty input
             }
             }
+       System.out.println("Have a nice day!!");
+        scan.close();
         }
     }
-
+// CONCLUSION NESTED CLASSES SUCK AND JUST MAKES CODE MORE COMPLEX #BAN NESTED CLASSES
